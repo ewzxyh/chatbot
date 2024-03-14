@@ -119,7 +119,7 @@ class DirBrevo {
       "emailBlacklisted": false,
 			"smsBlacklisted": false,
 			"listIds": [
-					  22
+					  0
 			],
 			"updateEnabled": false,
 			"smtpBlacklistSender": [

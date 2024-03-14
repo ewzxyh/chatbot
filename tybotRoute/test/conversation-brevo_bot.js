@@ -19,11 +19,10 @@ const bot = {
 				"_tdActionId": "123456789",
 				"bodyParameters": {
 					"email": "redacted@example.invalid",
-					"attributes": {
-					  "FIRSTNAME": "Ellya",
-					  "LASTNAME":"Ninas",
-    				  "SMS":"+393384147632"
-					},
+					"FIRSTNAME": "Ellya",
+					"LASTNAME":"Ninas",
+    				"SMS":"+393284347632",
+				
 					"emailBlacklisted": false,
 					"smsBlacklisted": false,
 					"listIds": [
