@@ -106,14 +106,14 @@ class DirBrevo {
       email: bodyParameters.email,
       attributes: bodyParameters,
       "emailBlacklisted": false,
-					"smsBlacklisted": false,
-					"listIds": [
-					  21
-					],
-					"updateEnabled": false,
-					"smtpBlacklistSender": [
-					  "redacted@example.invalid"
-					]
+			"smsBlacklisted": false,
+			"listIds": [
+					  22
+			],
+			"updateEnabled": false,
+			"smtpBlacklistSender": [
+					"redacted@example.invalid"
+			]
     }
     if (this.log) { console.log('DirBrevo key Debug2: ', key) }
     //----------------
