@@ -22,7 +22,7 @@ const bot = {
 					"attributes": {
 					  "FIRSTNAME": "Ellya",
 					  "LASTNAME":"Ninas",
-    				  "SMS":"+393314349333"
+    				  "SMS":"+393384147231"
 					},
 					"emailBlacklisted": false,
 					"smsBlacklisted": false,
