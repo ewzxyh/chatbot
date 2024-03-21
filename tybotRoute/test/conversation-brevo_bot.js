@@ -21,7 +21,7 @@ const bot = {
 					"email": "redacted@example.invalid",
 					"FIRSTNAME": "Ellya",
 					"LASTNAME":"Ninas",
-    				"SMS":"+393284347632",
+    				"SMS":"+393264347637",
 				
 					"emailBlacklisted": false,
 					"smsBlacklisted": false,
