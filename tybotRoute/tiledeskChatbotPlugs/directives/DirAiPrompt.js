@@ -281,7 +281,7 @@ class DirAiPrompt {
       json.model = {
         name: filled_model,
         url: vllm_server_config.url,
-        api_key: REDACTED_SECRET || null,
+        api_key: REDACTED_SECRET || vllm_server_config.token || null,
         provider: 'vllm'
       }
     }
