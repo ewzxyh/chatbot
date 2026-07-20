@@ -120,8 +120,9 @@ class DirDataTables {
 
       this.logger.native("[DataTables] operation " + operation + " completed");
       await this.#assignAttributes(action, this.#normalizeResult(result, operation), null);
-      if (trueIntent) {
-        await this.#executeCondition(true, trueIntent, trueIntentAttributes, falseIntent, falseIntentAttributes);
+      const conditionResult = operation !== 'get' || !Array.isArray(result) || result.length > 0;
+      if (conditionResult ? trueIntent : falseIntent) {
+        await this.#executeCondition(conditionResult, trueIntent, trueIntentAttributes, falseIntent, falseIntentAttributes);
         callback(true);
         return;
       }
