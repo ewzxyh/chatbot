@@ -10,6 +10,30 @@ const { DirUnlockIntent } = require('../tiledeskChatbotPlugs/directives/DirUnloc
 const winston = require('../utils/winston');
 const { AnalyticsClient } = require('../AnalyticsClient');
 
+function addFormResponseDelay(message, delayValue) {
+  const delayMs = Number(delayValue);
+  if (!message || !message.text || !Number.isFinite(delayMs) || delayMs <= 0) {
+    return;
+  }
+
+  const delayedMessage = {
+    type: message.type || 'text',
+    text: message.text
+  };
+  if (message.metadata) {
+    delayedMessage.metadata = message.metadata;
+  }
+  if (message.attributes && message.attributes.attachment) {
+    delayedMessage.attributes = { attachment: message.attributes.attachment };
+  }
+
+  message.attributes = message.attributes || {};
+  message.attributes.commands = [
+    { type: 'wait', time: delayMs },
+    { type: 'message', message: delayedMessage }
+  ];
+}
+
 class TiledeskChatbot {
 
   // static MAX_STEPS = process.env.CHATBOT_MAX_STEPS || 1000; // prod 1000;
@@ -345,6 +369,7 @@ class TiledeskChatbot {
         form_reply.message.attributes.fillParams = true;
         form_reply.message.attributes.splits = true;
         form_reply.message.attributes.markbot = true;
+        addFormResponseDelay(form_reply.message, intent_form.delayAfterResponseMs);
         return form_reply.message;
       }
       else if (form_reply.end) {
@@ -377,6 +402,7 @@ class TiledeskChatbot {
         form_reply.message.attributes.fillParams = true;
         form_reply.message.attributes.splits = true;
         form_reply.message.attributes.directives = true;
+        addFormResponseDelay(form_reply.message, intent_form.delayAfterResponseMs);
         // used by the Clients to get some info about the intent that generated this reply
         return form_reply.message
       }
